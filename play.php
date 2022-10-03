@@ -1,16 +1,17 @@
 <?php
 error_reporting(0);
 $bearer = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNmFkZWE4MDBkNDQ1MDk1NjA3YTRiMWY1MDc0YmM3ODJmZGE2NjYwNWZjNDdlNGRiNDA0NjJjMDMxOGM1NjQ1Y2ZjNGUwZDc5NWM1ZjkyIn0.eyJhdWQiOiIzIiwianRpIjoiNmI2YWRlYTgwMGQ0NDUwOTU2MDdhNGIxZjUwNzRiYzc4MmZkYTY2NjA1ZmM0N2U0ZGI0MDQ2MmMwMzE4YzU2NDVjZmM0ZTBkNzk1YzVmOTIiLCJpYXQiOjE2NjQ3ODQyMjIsIm5iZiI6MTY2NDc4NDIyMiwiZXhwIjoxNjk2MzIwMjIyLCJzdWIiOiI3MDAxOSIsInNjb3BlcyI6W119.iUMPyqTzshCAdHWjbP27Hq8YpQ9BVEPAbSJqTZZ-AHvV9nn0p5mE-jhpNxuDQriPY7S5q9EyBfsJC13aloZ-Khi74DCIOVAEqA0AR_sIC2ecbxD4…gAEt5zc4diabVuSXC-VGJV9YHJy02Qx8dr27GrbPKih1a10-lcfNxBsSonvTfXL_B0-0k6TkT---0qNsCfIUsrxvNYIXviNOFhkmqxHtVLoi5F32fQsSlP-IPnu1rS-G71Kv43MGsc9djhNZ2AMvvu4gmtt6Lp4BFKD7ZR2dGOo2EajMkcqpaP5_u9MGKcFJjCt7uyay2s_QQaQKHtENvoneHH1Wtewd1sFtAK8n2CdzZDU5sp7VmHp7LESlbKDsWVXKLcHbdYExFtTEpEVkIOQB3Zl1YtwUQxqtqCgJagxvKM-YAoBK6sixDJjZY1JT1BZ_4vB9sYoeZKcHvfrhuFt9PO1lIgP2MIWMNsmrvQHQY5EXDahLaYVsT7Yf7A9vrx1tc1DSkxUgmGBCn9Ufm_IKyZTt9k2jRJeJYfO_iOPnVUIIpfDrWzjIZRPVNi11znniRnlE_HHC4yrGhjDe5koW6xX0gxeV3MyyGoj9max-mg38IbZeEXODoan9jDk';
+ 
 function get($url, $bearer)
 {
     $ch = curl_init();
-
+ 
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-
+ 
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
+ 
     $headers = array();
     $headers[] = 'Authority: awsapi.play3.gg';
     $headers[] = 'Accept: application/json';
@@ -20,16 +21,16 @@ function get($url, $bearer)
     $headers[] = 'Dnt: 1';
     $headers[] = 'Origin: https://app.play3.gg';
     $headers[] = 'Referer: https://app.play3.gg/';
-    $headers[] = 'Sec-Ch-Ua: "Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"';
+    $headers[] = 'Sec-Ch-Ua: \"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"';
     $headers[] = 'Sec-Ch-Ua-Mobile: ?0';
-    $headers[] = 'Sec-Ch-Ua-Platform: "Windows"';
+    $headers[] = 'Sec-Ch-Ua-Platform: \"Windows\"';
     $headers[] = 'Sec-Fetch-Dest: empty';
     $headers[] = 'Sec-Fetch-Mode: cors';
     $headers[] = 'Sec-Fetch-Site: same-site';
     $headers[] = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36';
     $headers[] = 'X-Requested-With: XMLHttpRequest';
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
+ 
     $result = curl_exec($ch);
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
@@ -37,17 +38,17 @@ function get($url, $bearer)
     return $result;
     curl_close($ch);
 }
-
+ 
 function post($url, $data, $bearer)
 {
     $ch = curl_init();
-
+ 
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
-
+ 
     $headers = array();
     $headers[] = 'Authority: awsapi.play3.gg';
     $headers[] = 'Accept: application/json';
@@ -58,16 +59,16 @@ function post($url, $data, $bearer)
     $headers[] = 'Dnt: 1';
     $headers[] = 'Origin: https://app.play3.gg';
     $headers[] = 'Referer: https://app.play3.gg/';
-    $headers[] = 'Sec-Ch-Ua: "Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"';
+    $headers[] = 'Sec-Ch-Ua: \"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"';
     $headers[] = 'Sec-Ch-Ua-Mobile: ?0';
-    $headers[] = 'Sec-Ch-Ua-Platform: "Windows"';
+    $headers[] = 'Sec-Ch-Ua-Platform: \"Windows\"';
     $headers[] = 'Sec-Fetch-Dest: empty';
     $headers[] = 'Sec-Fetch-Mode: cors';
     $headers[] = 'Sec-Fetch-Site: same-site';
     $headers[] = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36';
     $headers[] = 'X-Requested-With: XMLHttpRequest';
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
+ 
     $result = curl_exec($ch);
     if (curl_errno($ch)) {
         echo 'Error:' . curl_error($ch);
@@ -75,17 +76,17 @@ function post($url, $data, $bearer)
     return $result;
     curl_close($ch);
 }
-
-
+ 
+ 
 echo "Link Course: ";
 $link_course = trim(fgets(STDIN));
 $link_course = str_replace("https://app.play3.gg/section/", "", $link_course);
-
+ 
 $get_course = get("https://awsapi.play3.gg/api/dashboard/learn-detail-v2/" . $link_course, $bearer);
 $get_course = json_decode($get_course, true);
-
+ 
 $learn_content = $get_course['learn']['learn_contents'];
-
+ 
 // get quiz and video id
 $vid_id = [];
 $quiz_id = [];
@@ -93,7 +94,7 @@ foreach ($learn_content as $key => $content) {
     $vid_id[] = $content['id'];
     $quiz_id[] = $content['quiz']['id'];
 }
-
+ 
 // view video
 foreach ($vid_id as $key => $vid) {
     view_vid:
@@ -141,7 +142,7 @@ foreach ($vid_id as $key => $vid) {
                     }
                 }
             }
-        } catch (Exception $th) {
+        } catch (\Exception $th) {
             continue;
         }
     }
